@@ -1,0 +1,63 @@
+def cripto(frase):
+    tradutor = ""
+    for letra in frase:
+        if letra in "a":
+            tradutor = tradutor + "!"
+        elif letra in "b":
+            tradutor = tradutor + "@"
+        elif letra in "c":
+            tradutor = tradutor + "#"
+        elif letra in "d":
+            tradutor = tradutor + "$"
+        elif letra in "f":
+            tradutor = tradutor + "%"
+        elif letra in "g":
+            tradutor = tradutor + "¨¨"
+        elif letra in "h":
+            tradutor = tradutor + "&"
+        elif letra in "j":
+            tradutor = tradutor + "*"
+        elif letra in "k":
+            tradutor = tradutor + "("
+        elif letra in "l":
+            tradutor = tradutor + ")"
+        else:
+            tradutor = tradutor + letra
+    return tradutor
+
+#Cript definindo regra
+
+print("---------------Cripto----------------\n")
+usuario = (cripto(input('Digite sua frase: ')))
+print(f'sua frase cripto é: {usuario}')
+
+#Descript na mão
+def descripto(frase):
+    descripto = ""
+    for letra in frase:
+        if letra in "!":
+            descripto = descripto + "a"
+        elif letra in "@":
+            descripto = descripto + "b"
+        elif letra in "#":
+            descripto = descripto + "c"
+        elif letra in "$":
+            descripto = descripto + "d"
+        elif letra in "%":
+            descripto = descripto + "f"
+        elif letra in "¨¨":
+            descripto = descripto + "g"
+        elif letra in "&":
+            descripto = descripto + "h"
+        elif letra in "*":
+            descripto = descripto + "j"
+        elif letra in "(":
+            descripto = descripto + "k"
+        elif letra in ")":
+            descripto = descripto + "l"
+        else: descripto = descripto + letra
+    return descripto
+
+print("----------Descripto----------")
+descripto == usuario
+print(descripto(input('Sua frase descripto: ')))
