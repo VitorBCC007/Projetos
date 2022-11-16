@@ -1,3 +1,5 @@
+#Regras da cripto substituição de letra por N elementos (Simbolos)
+
 def cripto(frase):
     tradutor = ""
     for letra in frase:
@@ -12,7 +14,7 @@ def cripto(frase):
         elif letra in "f":
             tradutor = tradutor + "%"
         elif letra in "g":
-            tradutor = tradutor + "¨¨"
+            tradutor = tradutor + "-"
         elif letra in "h":
             tradutor = tradutor + "&"
         elif letra in "j":
@@ -25,11 +27,11 @@ def cripto(frase):
             tradutor = tradutor + letra
     return tradutor
 
-#Cript definindo regra
+#Cript 
 
 print("---------------Cripto----------------\n")
 usuario = (cripto(input('Digite sua frase: ')))
-print(f'sua frase cripto é: {usuario}')
+print(f'sua frase cripto será: {usuario}')
 
 #Descript na mão
 def descripto(frase):
@@ -45,7 +47,7 @@ def descripto(frase):
             descripto = descripto + "d"
         elif letra in "%":
             descripto = descripto + "f"
-        elif letra in "¨¨":
+        elif letra in "-":
             descripto = descripto + "g"
         elif letra in "&":
             descripto = descripto + "h"
@@ -58,6 +60,6 @@ def descripto(frase):
         else: descripto = descripto + letra
     return descripto
 
-print("----------Descripto----------")
-descripto == usuario
+#Descripto
+print("\n----------Descripto----------")
 print(descripto(input('Sua frase descripto: ')))
