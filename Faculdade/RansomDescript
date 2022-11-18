@@ -1,0 +1,18 @@
+import os
+import pyaes
+
+file_name = "foto.jpg.pyransom" #arq já criptografado
+file = open(file_name, "rb") #abrindo arquivo já criptografado
+file_data = file.read() #pegando arquivo
+file.close() #fechando arquivo
+
+key = "0143256879fravtr" #mesma chave passada (criptografia simetrica)
+aes = pyaes.AESModeOfOperationCTR(key) #mesmo modo de operação (descriptografando)
+descrypt_data = aes.descrypt(file_data) #variavel que já contem o dado descriptografado
+
+os.remove(file_name) #removendo arquivo 
+
+new_file_name = "foto.jpg" #criando novo arquivo (já descriptografado)
+new_file = open(new_file_name, "wb") #abrindo arquivo
+new_file.write(descrypt_data) #escrevendo conteudo descriptografado
+new_file.close() #fechando o arquivo
