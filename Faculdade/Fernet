@@ -1,0 +1,16 @@
+from cryptography.fernet import Fernet 
+
+mensagem_crip = "Olá mundo"
+  
+key = Fernet.generate_key() 
+  
+fernet = Fernet(key)  
+  
+encMsg = fernet.encrypt(mensagem_crip.encode()) 
+  
+print("Txt inicial: ", mensagem_crip) 
+print("Txt enc: ", encMsg) 
+  
+decMsg = fernet.decrypt(encMsg).decode() 
+  
+print("Txt dec: ", decMsg) 
