@@ -1,6 +1,6 @@
-#Regras da cripto substituição de letra por N elementos (Simbolos)
+#Regras da cripto substituição de letra por N elementos (Simbolos, Numeros, Letras)
 
-def cripto(frase):
+def ling_alfa(frase):
     tradutor = ""
     for letra in frase:
         if letra in "a":
@@ -23,6 +23,12 @@ def cripto(frase):
             tradutor = tradutor + "("
         elif letra in "l":
             tradutor = tradutor + ")"
+        elif letra in "S":
+            tradutor = tradutor + "4"
+        elif letra in "D":
+            tradutor = tradutor + "5"
+        elif letra in "9":
+            tradutor = tradutor + "d"
         else:
             tradutor = tradutor + letra
     return tradutor
@@ -30,5 +36,5 @@ def cripto(frase):
 #Cript 
 
 print("---------------Cripto----------------\n")
-usuario = (cripto(input('Digite sua frase: ')))
+usuario = (ling_alfa(input('Digite sua frase: ')))
 print(f'sua frase cripto será: {usuario}')
