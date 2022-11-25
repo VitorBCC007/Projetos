@@ -1,0 +1,47 @@
+alfabeto = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")  #Alfabeto para ser crip
+arquivo = open('arquivo.txt', 'r') #Pegando arquivo txt 
+mensagem = arquivo.read()  #Mensagem do arquivo a ser crip
+mensagem2 = '' #Decrip
+cod = '' #Crip
+cod2 = '' #Decrip
+chave = 10 #Chave para decode
+
+print('----------Criptografando----------')
+
+def encod(mensagem, cod): #Criptografando
+    for caractere in mensagem:  #Caractere presente msg
+        if caractere in alfabeto:  #Se caractere está no alfabeto
+            ordem = alfabeto.index(caractere)  #Adicionando caracteres para cripto
+            cod += alfabeto[(ordem + chave) % len(alfabeto)]  #Criptografando alfa = ordem + chaveamento 
+        else:
+            cod += caractere  #Caso o caracacter não esteja no meu alfabeto não será criptografado
+
+    arquivo = open('arquivo.txt', 'w')  # arquivo aberto em modo escrita(criptografado)
+    arquivo.write(cod)  #Escrita da codificacao ao arquivo.
+    arquivo.close()  #Fechando o arquivo
+
+
+def decod(mensagem2, cod2): #Decriptografando
+    arquivo = open('arquivo.txt', 'r') #Pegando arquivo (Criptografado)
+    mensagem2 = arquivo.read() #Realizando a segunda parte da msg (Descriptografando)
+    for caractere in mensagem2: #Se cada caractere estiver na mensagem
+        if caractere in alfabeto: #Se cada caractere estiver no alfabeto
+            ordem = alfabeto.index(caractere) #Adicionando caracteres para decripto
+            cod2 += alfabeto[(ordem - chave) % len(alfabeto)] #Processo reverso da criptografia
+        else:
+            cod2 += caractere #Caso não estiver no alfa continua normal
+
+    arquivo = open('arquivo.txt', 'w')  # arquivo aberto em modo escrita
+    arquivo.write(cod2)  # escrita da codificacao ao arquivo.
+    arquivo.close()  # fechando o arquivo
+
+#Mensagem e cod = Criptografada  / / Mensagem2 e cod2 = Decriptografada
+encod(mensagem, cod)
+
+print("Arquivo Criptografrado")
+key = int(input("Para descriptografar o arquivo insira a chave correta (Tentativa Unica): "))
+
+if key == chave: #Se a chave inicial for correspondida realizar decode
+    decod(mensagem2, cod2)
+else: #Se não for correspondia corromper arquivo
+    print("Chave incorreta - Arquivo Corrompido")
