@@ -2,39 +2,38 @@
 
 def ling_alfa(frase):
     tradutor = ""
-    for letra in frase:
-        if letra in "a":
+    for caractere in frase:
+        if caractere in "a":
             tradutor = tradutor + "!"
-        elif letra in "b":
+        elif caractere in "b":
             tradutor = tradutor + "@"
-        elif letra in "c":
+        elif caractere in "c":
             tradutor = tradutor + "#"
-        elif letra in "d":
+        elif caractere in "d":
             tradutor = tradutor + "$"
-        elif letra in "f":
+        elif caractere in "f":
             tradutor = tradutor + "%"
-        elif letra in "g":
+        elif caractere in "g":
             tradutor = tradutor + "-"
-        elif letra in "h":
+        elif caractere in "h":
             tradutor = tradutor + "&"
-        elif letra in "j":
+        elif caractere in "j":
             tradutor = tradutor + "*"
-        elif letra in "k":
+        elif caractere in "k":
             tradutor = tradutor + "("
-        elif letra in "l":
+        elif caractere in "l":
             tradutor = tradutor + ")"
-        elif letra in "S":
+        elif caractere in "S":
             tradutor = tradutor + "4"
-        elif letra in "D":
+        elif caractere in "D":
             tradutor = tradutor + "5"
-        elif letra in "9":
+        elif caractere in "9":
             tradutor = tradutor + "d"
         else:
-            tradutor = tradutor + letra
+            tradutor = tradutor + caractere 
     return tradutor
 
-#Cript 
-
+#Texto exemplo : Ola mundo criptografado 9 D S 
 print("---------------Cripto----------------\n")
 usuario = (ling_alfa(input('Digite sua frase: ')))
 print(f'sua frase cripto será: {usuario}')
