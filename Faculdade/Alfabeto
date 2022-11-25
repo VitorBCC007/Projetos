@@ -1,7 +1,8 @@
 #Regras da cripto substituição de letra por N elementos (Simbolos, Numeros, Letras)
-
-def ling_alfa(frase):
+import time
+def ling_alfa(frase):    
     tradutor = ""
+
     for caractere in frase:
         if caractere in "a":
             tradutor = tradutor + "!"
@@ -29,11 +30,17 @@ def ling_alfa(frase):
             tradutor = tradutor + "5"
         elif caractere in "9":
             tradutor = tradutor + "d"
+        
         else:
             tradutor = tradutor + caractere 
     return tradutor
 
+#Tudo que for utilizado no A{AaBb123,.!} será visto como caracteres diferentes
+
 #Texto exemplo : Ola mundo criptografado 9 D S 
 print("---------------Cripto----------------\n")
 usuario = (ling_alfa(input('Digite sua frase: ')))
-print(f'sua frase cripto será: {usuario}')
+time.sleep(1)
+print('Sua frase está sendo criptografada aguarde. . .')
+time.sleep(2)
+print(f'\nsua frase cripto será: \n{usuario}')
